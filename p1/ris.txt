@@ -1,0 +1,19 @@
+RI s:
+
+
+
+
+quando ha 1 reserva aceite esta é defaultemente reserva pagamento pendente, quando o utilizador paga ela torna-se reserva paga
+
+
+
+
+///
+o user , se fizaer um reserva e esta tornar-se reserva paga, entao ele torna-se arrendatario que está a alugar o espaço previamene associado á oferta
+
+quando uma reserva é criada é uma reserva pendente, se for concelada pelo utilizador passa a ser reserva cancelada e se for decidida pelo senhorio aceintando ou recusando passa a ser respetivamente reserva aceite ou reserva declinada
+
+quando 1 oferta é criada esta é uma oferta disponivel, se houver uma reserva sobre a oferta que se torne reserva paga, es oferta fica oferta indisponivel
+
+um email tem o atributo boleano 'valido' que se for verdadeiro entao o atributo 'activa' da conta passa a  ser verdadeiro
+///
