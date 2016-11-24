@@ -3,10 +3,6 @@
 *		Grupo 19		*
 *************************/
 
-/* TO-DO
-
-*/
-
 
 INSERT INTO Reserva Values(314159);
 INSERT INTO Reserva Values(265358);
@@ -73,10 +69,40 @@ INSERT INTO Fiscaliza VALUES(9822, '42 Wallaby Way', 98173);
 INSERT INTO Fiscaliza VALUES(8080, '2311N Los Robles Avenue', 127);
 
 
+INSERT INTO Espaco VALUES('4 Privet Drive', 7);
 INSERT INTO Espaco VALUES('221B Baker Street', 22);
 INSERT INTO Espaco VALUES('42 Wallaby Way', 98173);
 INSERT INTO Espaco VALUES('2311N Los Robles Avenue', 127);
-INSERT INTO Espaco VALUES('2311N Los Robles Avenue', 816);
-INSERT INTO Espaco VALUES('2311N Los Robles Avenue', 89132);
 
+
+INSERT INTO Posto VALUES('2311N Los Robles Avenue', 89132, 127);
+INSERT INTO Posto VALUES('4 Privet Drive', 1, 7);
+INSERT INTO Posto VALUES('2311N Los Robles Avenue', 816, 127);
+
+
+INSERT INTO Oferta VALUES('742 Evergreen Terrace', 1, '1989-12-17', '1990-01-17', 486.52);
+INSERT INTO Oferta VALUES('221B Baker Street', 22, '1987-01-01', '1990-02-25', 500.00);
+INSERT INTO Oferta VALUES('42 Wallaby Way', 98173, '2003-05-30', '2003-10-30', 742.33);
+INSERT INTO Oferta VALUES('42 Wallaby Way', 98173, '2016-06-08', '2016-12-08', 133.37);
+INSERT INTO Oferta VALUES('42 Wallaby Way', 98173, '2014-02-28', '2016-02-28', 808.00);
+INSERT INTO Oferta VALUES('2311N Los Robles Avenue', 127, '2010-07-29', '2016-01-03', 1233.99);
+
+
+INSERT INTO Aluga VALUES('221B Baker Street', 22, '1987-01-01', 111111, 314159);
+INSERT INTO Aluga VALUES('42 Wallaby Way', 98173, '2003-05-30', 111111, 265358);
+INSERT INTO Aluga VALUES('42 Wallaby Way', 98173, '2016-06-08', 333333, 979323);
+INSERT INTO Aluga VALUES('2311N Los Robles Avenue', 127, '2010-07-29', 666666, 846264);
+
+
+INSERT INTO Paga VALUES(314159, '1987-01-02', 'BSC0D31');
+INSERT INTO Paga VALUES(265358, '2003-06-30', 'BSC0D32');
+INSERT INTO Paga VALUES(979323, '2016-07-08', 'BSC0D33');
+
+
+-- 'YYYYMMDDHHMMSS' -> The format of a timestamp
+INSERT INTO Estado VALUES(314159, '1987-01-02-13-13-13', 'Pendente');
+INSERT INTO Estado VALUES(314159, '1987-01-02-13-33-37', 'Paga');
+INSERT INTO Estado VALUES(265358, '2003-06-30-04-08-15', 'Paga');
+INSERT INTO Estado VALUES(979323, '2016-07-08-16-23-42', 'Paga');
+INSERT INTO Estado VALUES(846264, '2016-09-08-11-22-33', 'Pendente');
 
