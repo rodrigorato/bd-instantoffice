@@ -1,7 +1,9 @@
 <html>
     <body>
 <?php
-    $morada = $_REQUEST['morada'];
+    $nif = $_REQUEST['nif'];
+    $name = $_REQUEST['name'];
+    $phone = $_REQUEST['phone'];
     try
     {
         $host = "db.ist.utl.pt";
@@ -11,12 +13,20 @@
         $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "DELETE FROM Edificio WHERE Edificio.morada = '$morada';";
+        $db->query("start transaction;");
+
+        $sql = "INSERT INTO user(`nif`,`nome`,`telefone`)VALUES(:nif,:name,:phone);";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':nif',$nif,PDO::PARAM_STR);
+        $stmt->bindParam(':name',$name,PDO::PARAM_STR);
+        $stmt->bindParam(':phone',$phone,PDO::PARAM_STR);
 
         echo("<p>$sql</p>");
 
-        $db->query($sql);
+        $stmt->execute();
 
+        $db->query("commit;");
 
         $db = null;
     }

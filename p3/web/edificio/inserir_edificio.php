@@ -11,12 +11,18 @@
         $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "INSERT INTO Edificio(`morada`)VALUES('$morada');";
+        $db->query("start transaction;");
+
+        $sql = "INSERT INTO edificio(`morada`)VALUES(:morada);";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':morada',$morada,PDO::PARAM_STR);    
 
         echo("<p>$sql</p>");
 
-        $db->query($sql);
+        $stmt->execute();
 
+        $db->query("commit;");
 
         $db = null;
     }

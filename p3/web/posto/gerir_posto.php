@@ -13,7 +13,7 @@
         $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-        $sql = "SELECT * FROM Posto;";
+        $sql = "SELECT * FROM posto;";
     
         $result = $db->query($sql);
     
@@ -27,7 +27,7 @@
             echo("<td>{$row['morada']}</td>\n");
             echo("<td>{$row['codigo']}</td>\n");
             echo("<td>{$row['codigo_espaco']}</td>\n");
-            echo("<td><a href=\"\">Remover Espaco</a></td>\n");
+            echo("<td><a href=\"remover_posto.php?morada={$row['morada']}&code={$row['codigo']}&code_space={$row['codigo_espaco']}\">Remover Posto</a></td>\n");
             echo("</tr>\n");
         }
         echo("</table>\n");
@@ -39,7 +39,7 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
-        <a href="">Inserir Espaco</a></td>
+        <a href="adicionar_posto.php">Inserir Posto</a></td>
     </body>
 </html>
         
