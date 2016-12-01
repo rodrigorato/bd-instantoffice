@@ -1,6 +1,6 @@
 /************************
-*	    Table Population	*
-*		     Grupo 19		    *
+*	 Table Population	*
+*	     Grupo 19	    *
 *************************/
 
 
