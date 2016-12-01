@@ -23,6 +23,7 @@
             echo("<tr>\n");
             echo("<td>{$row['morada']}</td>\n");
             echo("<td><form><a href=\"remover_edificio.php?morada={$row['morada']}\">Remover Edifício</a></form</td>\n");
+            echo "<td><a href=\"verificar_total_realizado_espaco.php?morada={$row['morada']}\">Verificar Total Realizado</a></td>\n";
             echo("</tr>\n");
         }
         echo("</table>\n");
@@ -34,7 +35,7 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
-        <a href="adicionar_edificio.php">Inserir Edifício</a></td>
+        <p><a href="adicionar_edificio.php">Inserir Edifício</a></td></p>
     </body>
 </html>
         

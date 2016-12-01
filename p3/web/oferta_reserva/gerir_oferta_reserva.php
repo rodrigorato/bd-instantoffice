@@ -60,7 +60,7 @@
             echo("<td>{$row['data_inicio']}</td>\n");
             echo("<td>{$row['nif']}</td>\n");
             echo("<td>{$row['numero']}</td>\n");
-            echo("<td><a href=\"\">Anular Reserva</a></td>\n");
+            echo("<td><a href=\"remover_reserva.php?morada={$row['morada']}&code={$row['codigo']}&start_date={$row['data_inicio']}&nif={$row['nif']}&number={$row['numero']}\">Anular Reserva</a></td>\n");
             echo("</tr>\n");
         }
         echo("</table>\n");
@@ -81,7 +81,6 @@
             echo("<td>{$row['numero']}</td>\n");
             echo("<td>{$row['time_stamp']}</td>\n");
             echo("<td>{$row['estado']}</td>\n");
-            echo("<td><a href=\"\">????</a></td>\n");
             echo("</tr>\n");
         }
         echo("</table>\n");
