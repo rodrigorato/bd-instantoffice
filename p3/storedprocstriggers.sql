@@ -1,11 +1,8 @@
 /************************
-*		Stored Procedures   *
+*   Stored Procedures   *
 *      & triggers       *
-*				Grupo 19				*
+*       Grupo 19		*
 *************************/
-
-
-
 
 
 -- Trigger 1

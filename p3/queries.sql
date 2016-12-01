@@ -1,6 +1,6 @@
 /************************
-*		    Queries         *
-*				Grupo 19				*
+*		Queries         *
+*		Grupo 19		*
 *************************/
 
 -- Query #1 -- espaços c/postos nunca alugados

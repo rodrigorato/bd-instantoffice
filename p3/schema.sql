@@ -1,3 +1,8 @@
+/************************
+*	 Database Schema	*
+*	     Grupo 19	    *
+*************************/
+
 drop table if exists estado;
 drop table if exists paga;
 drop table if exists aluga;
