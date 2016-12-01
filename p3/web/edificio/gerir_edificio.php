@@ -1,4 +1,26 @@
 <html>
+<head>
+    <title>BD 2016/2017 - InstantOffice</title>
+    <style type="text/css">
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;   
+        }
+        h1,h2,h3,table,th,tr,td,.menu,p
+        {
+            margin: auto;
+            text-align: center;
+        }
+        p
+        {
+            font-size: large;
+        }
+        table,th,tr,td
+        {
+             border: 1px solid black;
+        }
+    </style>
+</head>
     <body>
     <h3>Edifício</h3>
 <?php
@@ -16,6 +38,7 @@
     
         $result = $db->query($sql);
     
+        echo "<div class=\"menu\"> <br>";
         echo("<table border=\"0\" cellspacing=\"5\">\n");
         echo "<th>Morada</th>";
         foreach($result as $row)
@@ -27,6 +50,7 @@
             echo("</tr>\n");
         }
         echo("</table>\n");
+        echo "</div>";
     
         $db = null;
     }
@@ -35,7 +59,7 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
-        <p><a href="adicionar_edificio.php">Inserir Edifício</a></td></p>
+        <br><p><a href="adicionar_edificio.php">Inserir Edifício</a></p>
     </body>
 </html>
         

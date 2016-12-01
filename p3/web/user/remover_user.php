@@ -1,4 +1,21 @@
 <html>
+<head>
+    <title>BD 2016/2017 - InstantOffice</title>
+    <style type="text/css">
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;   
+        }
+        h1,h2,h3,table
+        {
+            text-align: center;
+        }
+        .menu
+        {
+            text-align: center;
+        }
+    </style>
+</head>
     <body>
 <?php
     $nif = $_REQUEST['nif'];

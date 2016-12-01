@@ -1,4 +1,22 @@
 <html>
+<head>
+    <title>BD 2016/2017 - InstantOffice</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;   
+        }
+        h1,h2,h3,table
+        {
+            text-align: center;
+        }
+        .menu
+        {
+            text-align: center;
+        }
+    </style>
+</head>
     <body>
 <?php
     $morada = $_REQUEST['morada'];
@@ -22,8 +40,6 @@
 
         $stmt->bindParam(':num',$num,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $sql = "INSERT INTO aluga(`morada`,`codigo`,`data_inicio`,`nif`,`numero`)VALUES(:morada,:code,:start_date,:nif,:num);";
@@ -35,8 +51,6 @@
         $stmt->bindParam(':nif',$nif,PDO::PARAM_STR);
         $stmt->bindParam(':num',$num,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $sql = "INSERT INTO estado(`numero`,`time_stamp`,`estado`)VALUES(:num,:ts,'Aceite');";
@@ -46,11 +60,11 @@
         $ts = date("Y-m-d H:i:s");
         $stmt->bindParam(':ts',$ts,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $db->query("commit;");
+
+        echo("<p>Reserva criada com sucesso.</p>");
 
         $db = null;
     }

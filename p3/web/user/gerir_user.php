@@ -1,6 +1,28 @@
 <html>
+<head>
+    <title>BD 2016/2017 - InstantOffice</title>
+    <style type="text/css">
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;   
+        }
+        h1,h2,h3,table,th,tr,td,.menu,p
+        {
+            margin: auto;
+            text-align: center;
+        }
+        p
+        {
+            font-size: large;
+        }
+        table,th,tr,td
+        {
+             border: 1px solid black;
+        }
+    </style>
+</head>
     <body>
-    <h3>Utilizadores</h3>
+    <h3>Utilizadores</h3><br>
 <?php
     try
     {
@@ -16,7 +38,8 @@
         $sql = "SELECT * FROM user;";
     
         $result = $db->query($sql);
-    
+
+        echo "<div class=\"menu\">";
         echo("<table border=\"0\" cellspacing=\"5\">\n");
         echo "<th> NIF </th>";
         echo "<th> Nome </th>";
@@ -31,6 +54,7 @@
             echo("</tr>\n");
         }
         echo("</table>\n");
+        echo "</div>";
     
         $db = null;
     }
@@ -39,6 +63,6 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
-        <a href="adicionar_user.php">Criar User</a></td>
+        <br><p><a href="adicionar_user.php">Criar User</a></p>
     </body>
 </html>

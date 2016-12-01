@@ -1,4 +1,22 @@
 <html>
+<head>
+    <title>BD 2016/2017 - InstantOffice</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;   
+        }
+        h1,h2,h3,table
+        {
+            text-align: center;
+        }
+        .menu
+        {
+            text-align: center;
+        }
+    </style>
+</head>
     <body>
 <?php
     $morada = $_REQUEST['morada'];
@@ -22,11 +40,11 @@
         $stmt->bindParam(':code',$code,PDO::PARAM_STR);
         $stmt->bindParam(':start_date',$start_date,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $db->query("commit;");
+
+        echo("<p>Oferta removida com sucesso.</p>");
 
         $db = null;
     }

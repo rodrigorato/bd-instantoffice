@@ -1,4 +1,22 @@
 <html>
+<head>
+    <title>BD 2016/2017 - InstantOffice</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;   
+        }
+        h1,h2,h3,table
+        {
+            text-align: center;
+        }
+        .menu
+        {
+            text-align: center;
+        }
+    </style>
+</head>
     <body>
 <?php
     $morada = $_REQUEST['morada'];
@@ -31,8 +49,6 @@
         $stmt->bindParam(':nif',$nif,PDO::PARAM_STR);
         $stmt->bindParam(':num',$num,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $sql = "DELETE FROM estado where estado.numero = :num;";
@@ -40,7 +56,6 @@
 
         $stmt->bindParam(':num',$num,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
 
         $stmt->execute();
 
@@ -58,11 +73,11 @@
 
         $stmt->bindParam(':num',$num,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $db->query("commit;");
+
+        echo("<p>Reserva removida com sucesso.</p>");
 
         $db = null;
     }

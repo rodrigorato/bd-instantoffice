@@ -1,4 +1,26 @@
 <html>
+<head>
+    <title>BD 2016/2017 - InstantOffice</title>
+    <style type="text/css">
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;   
+        }
+        h1,h2,h3,table,th,tr,td,.menu,p
+        {
+            margin: auto;
+            text-align: center;
+        }
+        p
+        {
+            font-size: large;
+        }
+        table,th,tr,td
+        {
+             border: 1px solid black;
+        }
+    </style>
+</head>
     <body>
     <h3>Ofertas e Reservas</h3>
 <?php
@@ -17,7 +39,9 @@
     
         $result = $db->query($sql);
 
-        echo "<p>Ofertas</p>";
+        echo "<div class=\"menu\">";
+
+        echo "<br><p>Ofertas</p> <br>";
     
         echo("<table border=\"0\" cellspacing=\"5\">\n");
         echo "<th>Morada </th>";
@@ -37,14 +61,17 @@
             echo("</tr>\n");
         }
         echo("</table>\n");
-        echo  "<p><a href=\"adicionar_oferta.php\">Criar Oferta</a></td></p>";
-        echo  "<p><a href=\"adicionar_reserva.php\">Reservar Oferta</a></td></p>";
+        echo "</div>";
+        echo  "<br><p><a href=\"adicionar_oferta.php\">Criar Oferta</a></p>";
+        echo  "<br><p><a href=\"adicionar_reserva.php\">Reservar Oferta</a></p><br>";
 
         $sql = "SELECT * FROM aluga;";
     
         $result = $db->query($sql);
 
-        echo "<p>Reservas</p>";
+        echo "<div class=\"menu\">";
+
+        echo "<p>Reservas</p> <br>";
 
         echo("<table border=\"0\" cellspacing=\"5\">\n");
         echo "<th>Morada</th>";
@@ -64,12 +91,15 @@
             echo("</tr>\n");
         }
         echo("</table>\n");
+        echo "</div> <br>";
 
          $sql = "SELECT * FROM estado;";
     
         $result = $db->query($sql);
 
-        echo "<p>Estados das Reservas</p>";
+        echo "<div class=\"menu\">";
+
+        echo "<p>Estados das Reservas</p> <br>";
 
         echo("<table border=\"0\" cellspacing=\"5\">\n");
         echo "<th>Número</th>";
@@ -84,7 +114,8 @@
             echo("</tr>\n");
         }
         echo("</table>\n");
-        echo  "<p><a href=\"pagar_reserva.php\">Pagar Reserva</a></td></p>";
+        echo "</div> <br>";
+        echo  "<p><a href=\"pagar_reserva.php\">Pagar Reserva</a></p>";
 
         $db = null;
     }

@@ -1,4 +1,22 @@
 <html>
+<head>
+    <title>BD 2016/2017 - InstantOffice</title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body
+        {
+            font-family: Verdana, Geneva, sans-serif;   
+        }
+        h1,h2,h3,table
+        {
+            text-align: center;
+        }
+        .menu
+        {
+            text-align: center;
+        }
+    </style>
+</head>
     <body>
 <?php
     $method = $_REQUEST['method'];
@@ -21,8 +39,6 @@
         $ts = date("Y-m-d H:i:s");
         $stmt->bindParam(':ts',$ts,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $sql = "INSERT INTO paga(`numero`,`data`,`metodo`)VALUES(:num,:ts,:method);";
@@ -32,11 +48,11 @@
         $stmt->bindParam(':ts',$ts,PDO::PARAM_STR);
         $stmt->bindParam(':method',$method,PDO::PARAM_STR);
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $db->query("commit;");
+
+        echo("<p>Reserva paga com sucesso.</p>");
 
         $db = null;
     }
