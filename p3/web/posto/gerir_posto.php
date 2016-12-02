@@ -42,7 +42,7 @@
     }
 ?>
         <br><p><a href="adicionar_posto.php">Inserir Posto</a></p>
-    <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-1);"/></div>
+    <div style="text-align:center;"><a href='javascript:window.location = document.referrer;'>Voltar</a></div>
     </body>
 </html>
         
