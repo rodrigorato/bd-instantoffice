@@ -27,6 +27,14 @@
 
         $stmt->execute();
 
+        $sql = "DELETE FROM arrenda WHERE arrenda.morada = :morada AND arrenda.codigo = :code;";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':morada',$morada,PDO::PARAM_STR);
+        $stmt->bindParam(':code',$code,PDO::PARAM_STR);
+
+        $stmt->execute();
+
         $sql = "DELETE FROM alugavel WHERE alugavel.morada = :morada AND alugavel.codigo = :code;";
         $stmt = $db->prepare($sql);
 
@@ -48,6 +56,6 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
-    <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-1);"/></div>
+    <div style="text-align:center;"><a href="gerir_posto.php">Voltar</a></div>
     </body>
 </html>

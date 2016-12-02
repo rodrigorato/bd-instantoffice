@@ -39,7 +39,7 @@
         }
     ?>
         <br><p><a href="adicionar_edificio.php">Inserir Edifício</a></p>
-        <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-1);"/></div>
+        <div style="text-align:center;"><a href="../index.html">Voltar</a></div>
     </body>
 </html>
         

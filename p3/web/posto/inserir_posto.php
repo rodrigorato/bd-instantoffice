@@ -10,6 +10,7 @@
 <?php
     $morada = $_REQUEST['morada'];
     $code = $_REQUEST['code'];
+    $nif = $_REQUEST['nif'];
     $code_space = $_REQUEST['code_space'];
     $foto = 'http://lorempixel.com/400/200/';
     try
@@ -25,8 +26,16 @@
         $stmt->bindParam(':morada',$morada,PDO::PARAM_STR);
         $stmt->bindParam(':code',$code,PDO::PARAM_STR);
         $stmt->bindParam(':foto',$foto,PDO::PARAM_STR);
-            
 
+        $stmt->execute();
+
+        $sql = "INSERT INTO arrenda(`morada`,`codigo`,`nif`)VALUES(:morada,:code,:nif);";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':morada',$morada,PDO::PARAM_STR);
+        $stmt->bindParam(':code',$code,PDO::PARAM_STR);
+        $stmt->bindParam(':nif',$nif,PDO::PARAM_STR);
+            
         $stmt->execute();
 
         $sql = "INSERT INTO posto(`morada`,`codigo`,`codigo_espaco`)VALUES(:morada,:code,:codigo_espaco);";
@@ -51,6 +60,6 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
-    <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-2);"/></div>
+    <div style="text-align:center;"><a href="gerir_posto.php">Voltar</a></div>
     </body>
 </html>

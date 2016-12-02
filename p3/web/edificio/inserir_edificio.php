@@ -35,6 +35,6 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
-    <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-2);"/></div>
+    <div style="text-align:center;"><a href="gerir_edificio.php">Voltar</a></div>
     </body>
 </html>

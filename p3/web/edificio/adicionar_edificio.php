@@ -12,6 +12,6 @@
             <p>Morada: <input type="text" name="morada"/></p>
             <p><input type="submit" value="Submit"/></p>
         </form>
-        <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-1);"/></div>
+        <div style="text-align:center;"><a href="gerir_edificio.php">Voltar</a></div>
     </body>
 </html>
