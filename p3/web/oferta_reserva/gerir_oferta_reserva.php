@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>BD 2016/2017 - InstantOffice</title>
+    <meta charset="UTF-8">
     <style type="text/css">
         body
         {
