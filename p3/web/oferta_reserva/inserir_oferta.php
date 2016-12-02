@@ -13,13 +13,9 @@
     $tarifa = $_REQUEST['tarifa'];
     try
     {
-        $host = "db.ist.utl.pt";
-        $user ="ist181500";
-        $password = "tovv0904";
-        $dbname = $user;
-        $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+        include "../setup.php";
+        $db = getPDO();
+    
         $db->query("start transaction;");
 
         $sql = "INSERT INTO oferta(`morada`,`codigo`,`data_inicio`,`data_fim`,`tarifa`)VALUES(:morada,:code,:start_date,:end_date,:tarifa);";

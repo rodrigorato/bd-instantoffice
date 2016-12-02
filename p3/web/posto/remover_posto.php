@@ -11,13 +11,9 @@
     $code_space = $_REQUEST['code_space'];
     try
     {
-        $host = "db.ist.utl.pt";
-        $user ="ist181500";
-        $password = "tovv0904";
-        $dbname = $user;
-        $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+        include "../setup.php";
+        $db = getPDO();
+    
         $db->query("start transaction;");
 
         $sql = "DELETE FROM posto WHERE posto.morada = :morada AND posto.codigo = :code AND posto.codigo_espaco = :code_space;";
