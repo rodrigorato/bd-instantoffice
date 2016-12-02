@@ -1,5 +1,7 @@
 <html>
 <head>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
     <title>BD 2016/2017 - InstantOffice</title>
     <meta charset="UTF-8" http-equiv="content-language" content="pt">
     <link rel="stylesheet" href="../styles.css">
@@ -11,7 +13,7 @@
     try
     {
         include "../setup.php";
-            $db = getPDO();
+        $db = getPDO();
     
         $sql = "SELECT DISTINCT morada, codigo, SUM(DATEDIFF(data_fim, data_inicio)*tarifa) as montante_pago_2016
                 FROM paga NATURAL JOIN aluga NATURAL JOIN espaco NATURAL JOIN oferta NATURAL JOIN estado

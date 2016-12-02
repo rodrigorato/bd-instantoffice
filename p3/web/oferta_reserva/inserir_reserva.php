@@ -1,5 +1,7 @@
 <html>
 <head>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
     <title>BD 2016/2017 - InstantOffice</title>
     <meta charset="UTF-8" http-equiv="content-language" content="pt">
     <link rel="stylesheet" href="../styles.css">
