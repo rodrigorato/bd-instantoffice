@@ -50,7 +50,6 @@ CREATE TRIGGER estadoPaga1 BEFORE INSERT ON paga
         IF @estado_maxtimestamp > new.data THEN
             CALL ERR_ESTADOPAGA_TRIGGER; -- Calling non existing function because there are no exceptions.
         END IF;
-            -- ELSE adicionar ao estado??
     END //
 DELIMITER ;
 

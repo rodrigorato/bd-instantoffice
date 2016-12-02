@@ -28,7 +28,7 @@ FROM fiscaliza f, arrenda a, user u
 WHERE f.codigo = a.codigo
       AND a.morada = f.morada
       AND u.nif = a.nif
-GROUP BY f.morada, f.codigo
+GROUP BY u.nif
 HAVING COUNT(DISTINCT f.id) = 1;
 
 
@@ -51,7 +51,7 @@ GROUP BY morada, codigo_espaco;
 
 
 -- Query #5 -- espacos com postos todos alugados
-SELECT morada, codigo_espaco, COUNT(codigo) as num_espacos
+SELECT morada, codigo_espaco as codigo
 FROM posto p NATURAL JOIN oferta o NATURAL JOIN estado e NATURAL JOIN aluga a
 WHERE estado = 'Aceite'
 GROUP BY codigo_espaco
