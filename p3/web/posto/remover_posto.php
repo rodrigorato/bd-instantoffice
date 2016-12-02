@@ -1,21 +1,8 @@
 <html>
 <head>
     <title>BD 2016/2017 - InstantOffice</title>
-    <meta charset="UTF-8">
-    <style type="text/css">
-        body
-        {
-            font-family: Verdana, Geneva, sans-serif;   
-        }
-        h1,h2,h3,table
-        {
-            text-align: center;
-        }
-        .menu
-        {
-            text-align: center;
-        }
-    </style>
+    <meta charset="UTF-8" http-equiv="content-language" content="pt">
+    <link rel="stylesheet" href="../styles.css">
 </head>
     <body>
 <?php
@@ -40,8 +27,6 @@
         $stmt->bindParam(':code',$code,PDO::PARAM_STR); 
         $stmt->bindParam(':code_space',$code_space,PDO::PARAM_STR); 
 
-        echo("<p>$sql</p>");
-
         $stmt->execute();
 
         $sql = "DELETE FROM alugavel WHERE alugavel.morada = :morada AND alugavel.codigo = :code;";
@@ -50,11 +35,12 @@
         $stmt->bindParam(':morada',$morada,PDO::PARAM_STR);    
         $stmt->bindParam(':code',$code,PDO::PARAM_STR);    
 
-        echo("<p>$sql</p>");
 
         $stmt->execute();
 
         $db->query("commit;");
+
+        echo("<p>Posto removido com sucesso!</p>");
 
         $db = null;
     }
@@ -64,5 +50,6 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
+    <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-1);"/></div>
     </body>
 </html>

@@ -1,21 +1,8 @@
 <html>
 <head>
     <title>BD 2016/2017 - InstantOffice</title>
-    <meta charset="UTF-8">
-    <style type="text/css">
-        body
-        {
-            font-family: Verdana, Geneva, sans-serif;   
-        }
-        h1,h2,h3,table
-        {
-            text-align: center;
-        }
-        .menu
-        {
-            text-align: center;
-        }
-    </style>
+    <meta charset="UTF-8" http-equiv="content-language" content="pt">
+    <link rel="stylesheet" href="../styles.css">
 </head>
     <body>
 <?php
@@ -74,5 +61,6 @@
         echo("<p>ERROR: {$e->getMessage()}</p>");
     }
 ?>
+    <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-2);"/></div>
     </body>
 </html>

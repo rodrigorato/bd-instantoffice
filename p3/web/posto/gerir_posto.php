@@ -1,26 +1,8 @@
 <html>
 <head>
     <title>BD 2016/2017 - InstantOffice</title>
-    <meta charset="UTF-8">
-    <style type="text/css">
-        body
-        {
-            font-family: Verdana, Geneva, sans-serif;   
-        }
-        h1,h2,h3,table,th,tr,td,.menu,p
-        {
-            margin: auto;
-            text-align: center;
-        }
-        p
-        {
-            font-size: large;
-        }
-        table,th,tr,td
-        {
-             border: 1px solid black;
-        }
-    </style>
+    <meta charset="UTF-8" http-equiv="content-language" content="pt">
+    <link rel="stylesheet" href="../styles.css">
 </head>
     <body>
     <h3>Posto</h3>
@@ -66,6 +48,7 @@
     }
 ?>
         <br><p><a href="adicionar_posto.php">Inserir Posto</a></p>
+    <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-1);"/></div>
     </body>
 </html>
         

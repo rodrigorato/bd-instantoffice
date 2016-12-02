@@ -1,0 +1,16 @@
+body{
+    font-family: Verdana, Geneva, sans-serif;   
+}
+
+h1,h2,h3,table,th,tr,td,.menu,p{
+    margin: auto;
+    text-align: center;
+}
+        
+p{
+    font-size: large;
+}
+
+table,th,tr,td{
+    border: 1px solid black;
+}
