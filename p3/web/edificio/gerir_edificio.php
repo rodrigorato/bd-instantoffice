@@ -10,7 +10,7 @@
         try{
             include "../setup.php";
 
-            $db = getPDO();
+            $db = getPDO(); 
             
             $sql = "SELECT * FROM edificio;";
         
