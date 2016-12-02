@@ -39,9 +39,9 @@ DELIMITER ;
 
 
 
--- Trigger 2
+-- Trigger 2.1
 
-DROP TRIGGER IF EXISTS estadoPaga;
+DROP TRIGGER IF EXISTS estadoPaga1;
 DELIMITER //
 CREATE TRIGGER estadoPaga BEFORE INSERT ON paga
     FOR EACH ROW
@@ -57,6 +57,25 @@ CREATE TRIGGER estadoPaga BEFORE INSERT ON paga
     END //
 DELIMITER ;
 
+-- Trigger 2.2
+DROP TRIGGER IF EXISTS estadoPaga2;
+DELIMITER //
+CREATE TRIGGER estadoPaga BEFORE INSERT ON estado
+    FOR EACH ROW
+    BEGIN
+    	--data paga >= data ultimo estado
+    	--! data paga < data ultimo estado
+    	set @paga_data = 	(select data
+    						from paga
+    						where numero = new.numero)
+    	if @paga_data < new.time_stamp THEN
+    		call ERR_ESTADOPAGA_TRIGGER
+    	end if;
+    END //
+DELIMITER ;
+
+
 -- Trigger testing statements
 -- Should fail after teacher's populate.sql -- INSERT into paga values('2016-12', '2015-01-01 00:00:00', 'Paga');
+-- Insert into estado values ('2016-01', '2017-01-01 00:00:00', 'Aceite');
 -- Fim Trigger 2
