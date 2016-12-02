@@ -8,37 +8,39 @@
 </head>
     <body>
     <h3>Edifício</h3>
-    <?php
-        try{
-            include "../setup.php";
-            $db = getPDO(); 
-            
-            $sql = "SELECT * FROM edificio;";
+        <?php
+    try{
+        include "../setup.php";
+        $db = getPDO(); 
         
-            $result = $db->query($sql);
-        
-            echo "<div class=\"menu\"> <br>";
-            echo("<table border=\"0\" cellspacing=\"5\">\n");
-            echo "<th>Morada</th>";
-            foreach($result as $row)
-            {
-                echo("<tr>\n");
-                echo("<td>{$row['morada']}</td>\n");
-                echo("<td><a href=\"remover_edificio.php?morada={$row['morada']}\">Remover Edifício</a></td>\n");
-                echo "<td><a href=\"verificar_total_realizado_espaco.php?morada={$row['morada']}\">Verificar Total Realizado</a></td>\n";
-                echo("</tr>\n");
-            }
-            echo("</table>\n");
-            echo "</div>";
-        
-            $db = null;
+        $sql = "SELECT * FROM edificio;";
+    
+        $result = $db->query($sql);
+    
+        echo "<div class=\"menu\"> <br>";
+        echo("<table border=\"0\" cellspacing=\"5\">\n");
+        echo "<th>Morada</th>";
+        foreach($result as $row){
+            echo("<tr>\n");
+            echo("<td>{$row['morada']}</td>\n");
+            echo("<td><a href=\"remover_edificio.php?morada="); 
+            echo("{$row['morada']}\">Remover Edifcio</a></td>\n");
+            echo("<td><a href=\"verificar_total_realizado_espaco.php?morada=");
+            echo("{$row['morada']}\">Verificar Total Realizado</a></td>\n");
+            echo("</tr>\n");
         }
-        catch (PDOException $e)
-        {
-            echo("<p>ERROR: {$e->getMessage()}</p>");
-        }
-    ?>
-        <br><p><a href="adicionar_edificio.php">Inserir Edifício</a></p>
+        echo("</table>\n");
+        echo "</div>";
+    
+        $db = null;
+    }
+    catch (PDOException $e)
+    {
+        echo("<p>ERROR: {$e->getMessage()}</p>");
+    }
+?>
+
+	<br><p><a href="adicionar_edificio.php">Inserir Edifício</a></p>
         <div style="text-align:center;"><a href="../index.html">Voltar</a></div>
     </body>
 </html>
