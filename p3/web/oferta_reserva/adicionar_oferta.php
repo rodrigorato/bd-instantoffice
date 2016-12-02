@@ -14,6 +14,6 @@
             <p>Tarifa: <input type="number" min="0" name="tarifa"/></p>
             <p><input type="submit" value="Submit"/></p>
         </form>
-        <div style="text-align:center;"><a href='javascript:window.location = document.referrer;'>Voltar</a></div>
+        <div style="text-align:center;"><input action="action" type="button" value="Voltar" onclick="history.go(-1);"/></div>
     </body>
 </html>
