@@ -7,11 +7,20 @@ create table reserva_estrela(
     morada_codigo varchar(510) not null,
     tempo time,	not null
     data date, not null
+
     foreign key(nif) references user(nif),
     foreign key(morada_codigo) references local_dime(morada_codigo),
     foreign key(tempo) references tempo_dim(tempo),
     foreign key(data) references data_dim(data)
     primary key(numero, nif, morada_codigo, tempo, data));
+--numro em reserva -> numero
+--tarifa em oferta -> montante_pago
+--data_inicio - data_fim em oferta ->duraçao dias
+--nif em aluga 
+-- morada + codigo em aluga 
+--tempo(timestamp) em paga -> tempo
+--data(timestamp) em paga -> data
+
 
 
 create table tempo_dim(
