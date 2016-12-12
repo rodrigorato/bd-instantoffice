@@ -1,28 +1,3 @@
-create table reserva_estrela(
-    numero varchar(255) not null unique,
-    montante_pago numeric(19,4) not null,
-    duracao_dias int not null,
-
-    nif varchar(9) not null,
-    morada_codigo varchar(510) not null,
-    tempo time,	not null
-    data date, not null
-
-    foreign key(nif) references user(nif),
-    foreign key(morada_codigo) references local_dime(morada_codigo),
-    foreign key(tempo) references tempo_dim(tempo),
-    foreign key(data) references data_dim(data)
-    primary key(numero, nif, morada_codigo, tempo, data));
---numro em reserva -> numero
---tarifa em oferta -> montante_pago
---data_inicio - data_fim em oferta ->duraçao dias
---nif em aluga 
--- morada + codigo em aluga 
---tempo(timestamp) em paga -> tempo
---data(timestamp) em paga -> data
-
-
-
 create table tempo_dim(
 	tempo time not null,
 	hora int not null,
@@ -38,7 +13,7 @@ create table data_dim(
 	mes int not null,
 	semestre int not null,
 	ano int not null,
-	primary key(data);
+	primary key(data)
 );
 
 create table local_dim(
@@ -49,7 +24,24 @@ create table local_dim(
 	primary key(morada_codigo)
 );
 
-create table user_dim(--not sure if necessary
+create table user_dim(
 	nif varchar(9) not null,
 	primary key(nif)
+);
+
+create table reserva_estrela(
+    numero varchar(255) not null unique,
+    montante_pago numeric(19,4) not null,
+    duracao_dias int not null,
+
+    nif varchar(9) not null,
+    morada_codigo varchar(510) not null,
+    tempo time not null,
+    data date not null,
+
+    foreign key(nif) references user_dim(nif),
+    foreign key(morada_codigo) references local_dim(morada_codigo),
+    foreign key(tempo) references tempo_dim(tempo),
+    foreign key(data) references data_dim(data),
+    primary key(numero, nif, morada_codigo, tempo, data)
 );
