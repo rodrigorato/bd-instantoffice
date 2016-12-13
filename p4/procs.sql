@@ -6,8 +6,8 @@ create procedure buildtimedimension ()
 begin
 	declare begin_time TIME;
 	delete from tempo_dim;
-	set begin_time = '00:00';
-	while begin_time <= '23:59' do
+	set begin_time = '00:00:00';
+	while begin_time <= '23:59:00' do
 		insert into tempo_dim(`tempo`,`hora`,`minuto`) 
 			values (TIME(begin_time),HOUR(begin_time),MINUTE(begin_time));
 		set begin_time = ADDTIME(begin_time, '0:1:0.0');
@@ -37,3 +37,18 @@ call buildtimedimension();
 
 call builddatedimension();
 
+INSERT INTO user_dim SELECT * from user;
+
+insert into local_dim(`morada_codigo`,`edificio`,`espaco`,`posto`)
+SELECT CONCAT(morada,codigo),morada,codigo_espaco,codigo
+FROM posto;
+
+
+insert into local_dim(`morada_codigo`,`edificio`,`espaco`)
+SELECT CONCAT(morada,codigo),morada,codigo
+FROM espaco;
+
+INSERT INTO reserva_estrela(`numero`,`nif`,`duracao_dias`,`montante_pago`,`morada_codigo`,`data`,`tempo`)
+SELECT numero,nif,datediff(data_fim,data_inicio),datediff(data_fim,data_inicio)*tarifa,
+concat(morada,codigo),date(data),time_format(data, '%H:%i')
+from aluga NATURAL JOIN oferta NATURAL join paga;
