@@ -1,31 +1,67 @@
-SELECT edificio, espaco, posto, dia, mes, AVG(montante_pago) as AVG_MONTANTE_PAGO
+SELECT  espaco, posto, dia, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
-GROUP BY morada_codigo, data
+GROUP BY espaco, posto, data
 UNION
-SELECT edificio, espaco, posto, null, null, AVG(montante_pago) as AVG_MONTANTE_PAGO
+SELECT  espaco, posto, dia, NULL, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
-GROUP BY (morada_codigo)
+GROUP BY espaco,posto, dia
 UNION
-SELECT edificio, espaco, null, null, null, AVG(montante_pago) as AVG_MONTANTE_PAGO
+SELECT  espaco, posto, NULL, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
-GROUP BY edificio, espaco
+GROUP BY espaco, posto, mes
 UNION
-SELECT null, null, posto, null, null, AVG(montante_pago) as AVG_MONTANTE_PAGO
+SELECT  espaco, NULL, dia, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
-where posto is not null
-GROUP BY (posto)
+GROUP BY espaco, data
 UNION
-SELECT null,null, null, dia, mes, AVG(montante_pago) as AVG_MONTANTE_PAGO
+SELECT  NULL, posto, dia, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
+FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
+WHERE posto IS NOT NULL
+GROUP BY  posto, data
+UNION
+SELECT  espaco, posto, NULL, NULL, AVG(montante_pago) AS AVG_MONTANTE_PAGO
+FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
+GROUP BY espaco, posto
+UNION
+SELECT NULL, NULL, dia, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
 GROUP BY (data)
 UNION
-SELECT null,null, null, null, mes, AVG(montante_pago) as AVG_MONTANTE_PAGO
+SELECT  espaco, NULL, dia, NULL, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
-GROUP BY (mes)
-union
-SELECT null,null, null, dia, null, AVG(montante_pago) as AVG_MONTANTE_PAGO
+GROUP BY espaco, dia
+UNION
+SELECT  espaco, NULL, NULL, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
-GROUP BY (dia)
-union
-SELECT null, null, null, null, null, AVG(montante_pago) as AVG_MONTANTE_PAGO
+GROUP BY espaco, mes
+UNION
+SELECT  NULL, posto, NULL, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
+FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
+WHERE posto IS NOT NULL
+GROUP BY  posto, mes
+UNION
+SELECT  NULL, posto, dia, NULL, AVG(montante_pago) AS AVG_MONTANTE_PAGO
+FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
+WHERE posto IS NOT NULL
+GROUP BY  posto, dia
+UNION
+SELECT  espaco, NULL, NULL, NULL, AVG(montante_pago) AS AVG_MONTANTE_PAGO
+FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
+GROUP BY espaco
+UNION
+SELECT  NULL, posto, NULL, NULL, AVG(montante_pago) AS AVG_MONTANTE_PAGO
+FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
+WHERE posto IS NOT NULL
+GROUP BY posto
+
+UNION
+SELECT NULL, NULL, NULL, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
+FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
+GROUP BY mes
+UNION
+SELECT NULL, NULL, dia, NULL, AVG(montante_pago) AS AVG_MONTANTE_PAGO
+FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
+GROUP BY dia
+UNION
+SELECT NULL, NULL, NULL, NULL, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim;

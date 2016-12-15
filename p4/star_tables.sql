@@ -27,7 +27,6 @@ create table local_dim(
 	edificio varchar(255) not null,
 	espaco varchar(255) not null,
 	posto varchar (255),
-	tarifa numeric(19,4),
 	primary key(morada_codigo)
 );
 
@@ -45,8 +44,8 @@ create table reserva_estrela(
 
     nif varchar(9) not null,
     morada_codigo varchar(510) not null,
-    tempo time not null,
-    data date not null,
+    tempo int not null,
+    data int not null,
 
     foreign key(nif) references user_dim(nif),
     foreign key(morada_codigo) references local_dim(morada_codigo),
