@@ -5,7 +5,7 @@ drop table if exists user_dim;
 drop table if exists data_dim;
 
 create table tempo_dim(
-	tempo time not null unique,
+	tempo int not null unique,
 	hora int not null,
 	minuto int not null,
 
@@ -13,7 +13,7 @@ create table tempo_dim(
 );
 
 create table data_dim(
-	data date not null unique,
+	data int not null unique,
 	dia int not null,
 	semana int not null,
 	mes int not null,
@@ -34,7 +34,7 @@ create table local_dim(
 create table user_dim(
 	nif varchar(9) not null unique,
 	nome varchar(80) not null,
-  telefone varchar(26) not null,
+  	telefone varchar(26) not null,
 	primary key(nif)
 );
 
