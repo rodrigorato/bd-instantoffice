@@ -27,6 +27,7 @@ create table local_dim(
 	edificio varchar(255) not null,
 	espaco varchar(255) not null,
 	posto varchar (255),
+	tarifa numeric(19,4),
 	primary key(morada_codigo)
 );
 

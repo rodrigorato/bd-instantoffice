@@ -39,16 +39,16 @@ call builddatedimension();
 
 INSERT INTO user_dim SELECT * from user;
 
-insert into local_dim(`morada_codigo`,`edificio`,`espaco`,`posto`)
-SELECT CONCAT(morada,codigo),morada,codigo_espaco,codigo
-FROM posto;
+INSERT INTO local_dim(`morada_codigo`,`edificio`,`espaco`,`posto`,`tarifa`)
+SELECT CONCAT(morada,codigo),morada,codigo_espaco,codigo,tarifa
+FROM posto NATURAL JOIN oferta;
 
 
-insert into local_dim(`morada_codigo`,`edificio`,`espaco`)
-SELECT CONCAT(morada,codigo),morada,codigo
-FROM espaco;
+INSERT INTO local_dim(`morada_codigo`,`edificio`,`espaco`,`tarifa`)
+SELECT CONCAT(morada,codigo),morada,codigo,tarifa
+FROM espaco NATURAL JOIN oferta;
 
 INSERT INTO reserva_estrela(`numero`,`nif`,`duracao_dias`,`montante_pago`,`morada_codigo`,`data`,`tempo`)
 SELECT numero,nif,datediff(data_fim,data_inicio),datediff(data_fim,data_inicio)*tarifa,
 concat(morada,codigo),date(data),time_format(data, '%H:%i')
-from aluga NATURAL JOIN oferta NATURAL join paga;
+FROM aluga NATURAL JOIN oferta NATURAL JOIN paga;
