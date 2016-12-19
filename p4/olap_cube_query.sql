@@ -1,3 +1,9 @@
+/************************
+*	 	Cube Query		*
+*	     Grupo 19	    *
+*************************/
+
+
 SELECT  espaco, posto, dia, mes, AVG(montante_pago) AS AVG_MONTANTE_PAGO
 FROM reserva_estrela NATURAL JOIN data_dim NATURAL JOIN local_dim
 GROUP BY espaco, posto, data

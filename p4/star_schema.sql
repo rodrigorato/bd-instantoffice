@@ -1,3 +1,9 @@
+/************************
+*  Database Star Schema *
+*	     Grupo 19	    *
+*************************/
+
+
 drop table if exists reserva_estrela;
 drop table if exists tempo_dim;
 drop table if exists local_dim;
